@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/constant/app_colors.dart';
+import 'package:task_management/widgets/app_border_button.dart';
 import 'package:task_management/widgets/app_button.dart';
 
 class GetStartedScreen extends StatelessWidget {
@@ -17,110 +19,37 @@ class GetStartedScreen extends StatelessWidget {
               Image.asset('lib/assets/icons/logo.png', width: 200, height: 200),
               Column(
                 children: [
-                  appButton('Get Started', () {
+                  Text(
+                    textAlign: TextAlign.center,
+                    "Navigate Your Work Journey Efficient & Easy",
+                    style: TextStyle(
+                      color: AppColors.whiteColor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'CustomSans',
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+
+                  Text(
+                    textAlign: TextAlign.center,
+                    "Increase your work management & career development radically",
+                    style: TextStyle(
+                      color: AppColors.whiteColor,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'CustomSans',
+                    ),
+                  ),
+                  const SizedBox(height: 50),
+
+                  appButton('Sign In', () {
                     Navigator.pushNamed(context, '/login');
                   }),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey.shade300,
-                          thickness: 2,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          'Or Continue with',
-                          style: TextStyle(color: Colors.white, fontSize: 14),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey.shade300,
-                          thickness: 2,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 12),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey.shade400),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'lib/assets/icons/apple.png',
-                                  height: 24,
-                                  width: 24,
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  'Apple',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(width: 16),
-
-                      Expanded(
-                        child: InkWell(
-                          onTap: () {},
-                          child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 12),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey.shade400),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  'lib/assets/icons/google.png',
-                                  height: 24,
-                                  width: 24,
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  'Google',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    'By continuing, you agree our Term & Condition',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 20),
+                  appBorderButton('Sign Up', () {
+                    Navigator.pushNamed(context, '/signup');
+                  }),
                 ],
               ),
             ],
@@ -130,3 +59,75 @@ class GetStartedScreen extends StatelessWidget {
     );
   }
 }
+
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //   children: [
+                  //     Expanded(
+                  //       child: InkWell(
+                  //         onTap: () {},
+                  //         child: Container(
+                  //           padding: EdgeInsets.symmetric(vertical: 12),
+                  //           decoration: BoxDecoration(
+                  //             border: Border.all(color: Colors.grey.shade400),
+                  //             borderRadius: BorderRadius.circular(20),
+                  //           ),
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.center,
+                  //             children: [
+                  //               Image.asset(
+                  //                 'lib/assets/icons/apple.png',
+                  //                 height: 24,
+                  //                 width: 24,
+                  //                 color: AppColors.whiteColor ,
+                  //               ),
+                  //               SizedBox(width: 10),
+                  //               Text(
+                  //                 'Apple',
+                  //                 style: TextStyle(
+                  //                   fontSize: 16,
+                  //                   fontWeight: FontWeight.w500,
+                  //                   color: AppColors.whiteColor,
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+
+                  //     SizedBox(width: 16),
+
+                  //     Expanded(
+                  //       child: InkWell(
+                  //         onTap: () {},
+                  //         child: Container(
+                  //           padding: EdgeInsets.symmetric(vertical: 12),
+                  //           decoration: BoxDecoration(
+                  //             border: Border.all(color: Colors.grey.shade400),
+                  //             borderRadius: BorderRadius.circular(20),
+                  //           ),
+                  //           child: Row(
+                  //             mainAxisAlignment: MainAxisAlignment.center,
+                  //             children: [
+                  //               Image.asset(
+                  //                 'lib/assets/icons/google.png',
+                  //                 height: 24,
+                  //                 width: 24,
+                  //               ),
+                  //               SizedBox(width: 10),
+                  //               Text(
+                  //                 'Google',
+                  //                 style: TextStyle(
+                  //                   fontSize: 16,
+                  //                   fontWeight: FontWeight.w500,
+                  //                   color: AppColors.whiteColor,
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),

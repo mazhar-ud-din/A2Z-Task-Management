@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/constant/app_colors.dart';
+import 'package:task_management/constant/static_function.dart';
 import 'package:task_management/widgets/app_button.dart';
 import 'package:task_management/widgets/app_dropdown.dart';
 import 'package:task_management/widgets/app_textfield.dart';
@@ -20,6 +22,7 @@ class _SignupScreenState extends State<SignupScreen> {
       TextEditingController();
 
   String? selectedPosition;
+  bool isChecked = false;
 
   void signupHandler() {
     final String firstName = firstNameController.text.trim();
@@ -52,6 +55,15 @@ class _SignupScreenState extends State<SignupScreen> {
       debugPrint('Passwords do not match');
       return;
     }
+    // AppDialogs.showWelcomeSheet(context, () {
+    //   debugPrint('Clicked');
+    // },(){
+    //   debugPrint('Clicked111');
+
+    // });
+    Navigator.pushNamed(context, '/otp');
+
+    // Navigator.pushNamed(context, '/login');
 
     debugPrint(
       'firstName==> $firstName lastName==> $lastName email==> $email password==> $password ConfirmPassword==> $confirmPassword selectedPosition==> $selectedPosition',
@@ -77,21 +89,27 @@ class _SignupScreenState extends State<SignupScreen> {
           padding: EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 20),
-                goBackButton(() {
-                  Navigator.pop(context);
-                }),
-                const SizedBox(height: 30),
-
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: goBackButton(() {
+                    Navigator.pop(context);
+                  }),
+                ),
+                Image.asset(
+                  'lib/assets/icons/logo.png',
+                  width: 100,
+                  height: 100,
+                ),
                 const Text(
-                  "Create an account",
+                  "Task Mangement",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: AppColors.whiteColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    height: 1.4,
+                    fontFamily: 'CustomSans',
                   ),
                 ),
                 const SizedBox(height: 30),
@@ -100,7 +118,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: "First Name",
                   suffixIcon: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.person),
+                    icon: Icon(Icons.person, color: AppColors.whiteColor),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -109,7 +127,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: "Last Name",
                   suffixIcon: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.person),
+                    icon: Icon(Icons.person, color: AppColors.whiteColor),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -118,7 +136,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: "Email",
                   suffixIcon: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.email),
+                    icon: Icon(Icons.email, color: AppColors.whiteColor),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -127,7 +145,10 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: "Password",
                   suffixIcon: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.visibility_off),
+                    icon: Icon(
+                      Icons.visibility_off,
+                      color: AppColors.whiteColor,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -136,7 +157,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: "Confirm Password",
                   suffixIcon: IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.visibility),
+                    icon: Icon(Icons.visibility, color: AppColors.whiteColor),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -151,9 +172,39 @@ class _SignupScreenState extends State<SignupScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Checkbox(
+                      value: isChecked,
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = value!;
+                        });
+                      },
+                      activeColor: AppColors.primaryColor,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isChecked = !isChecked;
+                        });
+                      },
+                      child: Text(
+                        "I agree with terms & conditions and privacy policy",
+                        style: TextStyle(
+                          color: AppColors.whiteColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'CustomSans',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
 
-                appButton('Sign Up',signupHandler),
+                appButton('Sign Up', signupHandler),
                 SizedBox(height: 20),
               ],
             ),

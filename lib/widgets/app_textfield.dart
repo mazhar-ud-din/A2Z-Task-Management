@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/constant/app_colors.dart';
 
 Widget appTextfield({
   required String hintText,
@@ -14,10 +15,14 @@ Widget appTextfield({
     child: TextField(
       controller: controller,
       obscureText: obscureText,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: AppColors.whiteColor),
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.grey),
+        hintStyle: const TextStyle(
+          color: AppColors.whiteColor,
+          fontFamily: 'CustomSans',
+          fontSize: 13,
+        ),
         border: InputBorder.none,
         contentPadding: const EdgeInsets.all(18),
         suffixIcon: suffixIcon,
