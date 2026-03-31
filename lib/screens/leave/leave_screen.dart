@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:task_management/constant/app_colors.dart';
 import 'package:task_management/widgets/box_container.dart';
 
-class ExpenseScreen extends StatefulWidget {
-  const ExpenseScreen({super.key});
+class LeaveScreen extends StatefulWidget {
+  const LeaveScreen({super.key});
 
   @override
-  State<ExpenseScreen> createState() => _ExpenseScreenState();
+  State<LeaveScreen> createState() => _LeaveScreenState();
 }
 
-class _ExpenseScreenState extends State<ExpenseScreen> {
-  int selectedIndex = 0;
+class _LeaveScreenState extends State<LeaveScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +23,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
               children: [
                 const SizedBox(height: 40),
                 Text(
-                  "Expense Summary",
+                  "Leave Summary",
                   style: TextStyle(
                     color: AppColors.whiteColor,
                     fontSize: 24,
@@ -33,7 +32,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                   ),
                 ),
                 Text(
-                  "Claim your expenses here.",
+                  "Submit Leave.",
                   style: TextStyle(
                     color: AppColors.whiteColor,
                     fontSize: 12,
@@ -68,13 +67,9 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                       const SizedBox(height: 20),
                       Row(
                         children: [
-                          Expanded(
-                            child: _summaryCard('Total Expense', '\$ 1010'),
-                          ),
+                          Expanded(child: _summaryCard('Available', '20')),
                           const SizedBox(width: 10),
-                          Expanded(child: _summaryCard('Review', '\$ 455')),
-                          const SizedBox(width: 10),
-                          Expanded(child: _summaryCard('Approved', '\$ 555')),
+                          Expanded(child: _summaryCard('Leave Used', '2')),
                         ],
                       ),
                     ],
@@ -82,21 +77,6 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                 ),
 
                 SizedBox(height: 20),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryColor,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  child: Row(
-                    children: [
-                      _tabItem("Review", 0),
-                      _tabItem("Approved", 1),
-                      _tabItem("Reject", 2),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
                 boxContainer(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,13 +84,13 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                       Row(
                         children: [
                           Icon(
-                            Icons.list,
+                            Icons.star,
                             color: AppColors.whiteColor,
                             size: 30,
                           ),
                           SizedBox(width: 5),
                           Text(
-                            '27 September 2024',
+                            '10 November 2024',
                             style: TextStyle(
                               color: AppColors.whiteColor,
                               fontSize: 16,
@@ -124,95 +104,7 @@ class _ExpenseScreenState extends State<ExpenseScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
-                boxContainer(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.list,
-                            color: AppColors.whiteColor,
-                            size: 30,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            '27 September 2024',
-                            style: TextStyle(
-                              color: AppColors.whiteColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'CustomSans',
-                            ),
-                          ),
-                        ],
-                      ),
-                      totalExpenseCard(),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                boxContainer(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.list,
-                            color: AppColors.whiteColor,
-                            size: 30,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            '27 September 2024',
-                            style: TextStyle(
-                              color: AppColors.whiteColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'CustomSans',
-                            ),
-                          ),
-                        ],
-                      ),
-                      totalExpenseCard(),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
               ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _tabItem(String title, int index) {
-    bool isSelected = selectedIndex == index;
-
-    return Expanded(
-      child: InkWell(
-        onTap: () {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: isSelected ? AppColors.whiteColor : Colors.transparent,
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: AppColors.secondaryColor,
-              fontSize: 12,
-              fontWeight: FontWeight.w700,
-              fontFamily: 'CustomSans',
             ),
           ),
         ),
@@ -233,8 +125,6 @@ Widget _summaryCard(String title, String count) {
       children: [
         Row(
           children: [
-            // Icon(Icons.task, size: 15, color: AppColors.whiteColor),
-            // const SizedBox(width: 5),
             Expanded(
               child: Text(
                 title,
@@ -279,7 +169,7 @@ Widget totalExpenseCard() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Type',
+              'Leave Date',
               style: TextStyle(
                 color: AppColors.whiteColor,
                 fontSize: 16,
@@ -288,7 +178,7 @@ Widget totalExpenseCard() {
               ),
             ),
             Text(
-              'E-Learning',
+              '11 Nov - 13 Nov',
               style: TextStyle(
                 color: AppColors.whiteColor,
                 fontSize: 12,
@@ -302,7 +192,7 @@ Widget totalExpenseCard() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Total Expense',
+              'Total Leave',
               style: TextStyle(
                 color: AppColors.whiteColor,
                 fontSize: 12,
@@ -311,7 +201,7 @@ Widget totalExpenseCard() {
               ),
             ),
             Text(
-              '\$55',
+              '2 Days',
               style: TextStyle(
                 color: AppColors.whiteColor,
                 fontSize: 16,

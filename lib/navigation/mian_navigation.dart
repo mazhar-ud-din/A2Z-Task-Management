@@ -3,7 +3,7 @@ import 'package:task_management/constant/app_colors.dart';
 import 'package:task_management/screens/calender/calender_screen.dart';
 import 'package:task_management/screens/expense/expense_screen.dart';
 import 'package:task_management/screens/home/home_screen.dart';
-import 'package:task_management/screens/profile/profile_screen.dart';
+import 'package:task_management/screens/leave/leave_screen.dart';
 import 'package:task_management/screens/task/task_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     CalenderScreen(),
     TaskScreen(),
     ExpenseScreen(),
-    ProfileScreen(),
+    LeaveScreen(),
   ];
 
   @override
@@ -90,7 +90,7 @@ class _MainScreenState extends State<MainScreen> {
                   'lib/assets/icons/Leave.png',
                   isActive: true,
                 ),
-                label: 'profile',
+                label: 'leave',
               ),
             ],
           ),

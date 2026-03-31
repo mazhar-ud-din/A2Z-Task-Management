@@ -6,6 +6,7 @@ Widget appTextfield({
   bool obscureText = false,
   Widget? suffixIcon,
   TextEditingController? controller,
+  // bool isDescription = true,
 }) {
   return Container(
     decoration: BoxDecoration(
@@ -16,6 +17,8 @@ Widget appTextfield({
       controller: controller,
       obscureText: obscureText,
       style: const TextStyle(color: AppColors.whiteColor),
+      // minLines: isDescription ? 3 : 1,
+      // maxLines: isDescription ? null : 4,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(

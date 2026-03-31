@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget appButton(String buttonLabel, VoidCallback onPressedButton,{double fontSize = 16,buttonTextColor = Colors.black,buttonPadding=const EdgeInsets.symmetric(vertical: 16)}) {
+Widget appButton(
+  String buttonLabel,
+  VoidCallback onPressedButton, {
+  double fontSize = 16,
+  buttonTextColor = Colors.black,
+  buttonPadding = const EdgeInsets.symmetric(vertical: 16),
+}) {
   return SizedBox(
     width: double.infinity,
     child: ElevatedButton(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task_management/constant/app_colors.dart';
-import 'package:task_management/constant/static_function.dart';
 import 'package:task_management/widgets/app_button.dart';
 import 'package:task_management/widgets/app_dropdown.dart';
 import 'package:task_management/widgets/app_textfield.dart';
